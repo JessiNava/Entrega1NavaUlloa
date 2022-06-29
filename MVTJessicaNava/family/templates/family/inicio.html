@@ -1,0 +1,39 @@
+{% extends "family/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+    <div style="backgroug-color: ffffff;">
+
+    <h1>Bienvenid@ al portal de la familia Nava</h1>
+    <br>
+    <br>
+
+    <h3>Buscar un familiar:</h3>
+
+    <form action="/family/buscar/" method="GET">
+
+        <input type="char" name="nombre" id="nombre">
+
+        <input type="submit" value="Buscar">
+
+    </form>
+
+    
+
+    {% if familia %}
+
+    <p>Estamos buscando a: {{nombre}}</p>
+
+    <ul>
+	{% for familia in tickets %}
+		<li> {{familia.nombre}} </li>
+	{% endfor %}
+
+    </ul>
+   
+    {% endif %}
+
+{% endblock %}
